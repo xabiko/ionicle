@@ -34,7 +34,8 @@
     "esri-loader": "^2.9.2",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
-    "zone.js": "~0.8.29"
+    "zone.js": "~0.8.29",
+    "querystringify": ">=2.0.0"
   },
   "devDependencies": {
     "@angular-devkit/architect": "~0.13.8",
@@ -60,7 +61,8 @@
     "protractor": "~5.4.0",
     "ts-node": "~8.1.0",
     "tslint": "~5.16.0",
-    "typescript": "~3.1.6"
+    "typescript": "~3.1.6",
+    "querystringify": ">=2.0.0"
   },
   "description": "An Ionic project"
 }

@@ -15,6 +15,8 @@ const routes: Routes = [
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
   },
+  { path: 'census-map',
+    loadChildren: './census-map/census-map.module#CensusMapPageModule' },
 ];
 
 @NgModule({

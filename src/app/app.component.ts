@@ -22,6 +22,11 @@ export class AppComponent {
       url: '/list',
       icon: 'list'
     },
+    {
+      title: 'Map',
+      url: '/census-map',
+      icon: 'map'
+    },
   ];
 
   constructor(

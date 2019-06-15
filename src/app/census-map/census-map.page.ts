@@ -16,7 +16,7 @@ export class CensusMapPage implements AfterViewInit {
   ngAfterViewInit() {
 
 	   // first, we use Dojo's loader to require the map class
-	   loadModules(['esri/views/MapView', 'esri/WebMap', 'esri/widgets/LayerList'])
+	   loadModules(['esri/views/MapView', 'esri/WebMap', 'esri/widgets/LayerList', 'esri/PopupTemplate'])
 		 .then(([MapView, WebMap, LayerList]) => {
 
 		   // then we load a web map from an id
@@ -29,11 +29,19 @@ export class CensusMapPage implements AfterViewInit {
 			 const view = new MapView({
   		     map: map,
   				 container: 'viewDiv',
-  				 // popup: {  dockEnabled: true,
-           //           dockOptions: {
-           //             breakpoint: false
-           //           }}
+  				 popup: {  dockEnabled: true,
+                     dockOptions: {
+                       buttonEnabled: false,
+                       breakpoint: false
+                     }}
 			 });
+
+        var template = {
+          // NAME and COUNTY are fields in the service containing the Census Tract (NAME) and county of the feature
+          title: "Census Tract {NAME10}",
+        };
+
+        map.popupTemplate = template;
 
 		 //   	 // helper function for returning a layer instance
 		 //      // based on a given layer title

@@ -41,8 +41,6 @@ export class CensusMapPage implements AfterViewInit {
           title: "Census Tract {NAME10}",
         };
 
-        map.popupTemplate = template;
-
 		 //   	 // helper function for returning a layer instance
 		 //      // based on a given layer title
 		 //      function findLayerByTitle(title) {

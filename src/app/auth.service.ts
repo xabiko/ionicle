@@ -17,16 +17,18 @@ export class AuthService {
   constructor(
       private afAuth: AngularFireAuth,
       private afs: AngularFirestore,
-      private router: Router
+      private router: Router,
   ) {
 
-    this.afAuth.auth.getRedirectResult().then(function(result) {console.log(result)});
-    console.log(this.afAuth.authState);
-
+    // console.log( 'Check auth state:\n' + this.afAuth.authState );
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
+
           // Logged in
         if (user) {
+          console.log('Check uid: \n' + user.uid);
+          
+          this.updateUserData(user);
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
           // Logged out
@@ -36,6 +38,8 @@ export class AuthService {
     )
   }
 
+  ////////////////////////////////////////////////////////
+
   async googleSignin() {
     const provider = new auth.GoogleAuthProvider();
     provider.addScope('profile');
@@ -44,13 +48,11 @@ export class AuthService {
       'hd': 'slcpl.org'
     });
     this.afAuth.auth.signInWithRedirect(provider);
-    // const credential = await this.afAuth.auth.signInWithRedirect(provider);
-    // return this.updateUserData(credential.user);
-    console.log("Here");
   }
 
   private updateUserData(user) {
     // Sets user data to firestore on login
+    console.log('Check uid update: \n' + user.uid);
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
 
     const data = {

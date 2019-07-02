@@ -20,14 +20,10 @@ export class AuthService {
       private router: Router,
   ) {
 
-    // console.log( 'Check auth state:\n' + this.afAuth.authState );
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
-
           // Logged in
         if (user) {
-          console.log('Check uid: \n' + user.uid);
-          
           this.updateUserData(user);
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
@@ -52,7 +48,6 @@ export class AuthService {
 
   private updateUserData(user) {
     // Sets user data to firestore on login
-    console.log('Check uid update: \n' + user.uid);
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
 
     const data = {

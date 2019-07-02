@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './auth/auth.guard';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { IonicModule } from '@ionic/angular';
 
 import { CommonModule } from '@angular/common';
 
@@ -34,6 +35,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
     CommonModule,
+    IonicModule
   ],
   exports: [RouterModule],
   providers: [AuthGuard],

@@ -11,13 +11,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { environment } from '../environments/environment';
+// import { UserProfileModule } from './user-profile/user-profile.module';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-
-// import { UserProfileComponent } from './user-profile/user-profile.component';
-// import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +28,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    // UserProfileModule
   ],
   providers: [
     StatusBar,

@@ -25,6 +25,7 @@ export class AuthService {
           // Logged in
         if (user) {
           this.updateUserData(user);
+          // console.log(this.afs.doc<User>(`users/${user.uid}`));
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
           // Logged out
@@ -32,6 +33,7 @@ export class AuthService {
         }
       })
     )
+
   }
 
   ////////////////////////////////////////////////////////
@@ -57,7 +59,15 @@ export class AuthService {
       photoURL: user.photoURL
     }
 
-    return userRef.set(data, { merge: true })
+    userRef.update(data)
+      .then(() => {
+        console.log("update successful (document exists)");
+      })
+      .catch((error) => {
+        console.log("document doesn't exist"); // (document does not exists)
+        userRef.set(data);
+      });
+    // return userRef.set(data, { merge: true })
 
   }
 

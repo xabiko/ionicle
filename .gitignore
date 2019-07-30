@@ -33,6 +33,9 @@ $RECYCLE.BIN/
 ssl/
 src/environments/
 
+.firebase/
+.firebaserc
+
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate

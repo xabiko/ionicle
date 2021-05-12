@@ -31,7 +31,7 @@
     "@ionic/pro": "2.0.4",
     "@ngtools/webpack": "^1.10.2",
     "@types/arcgis-js-api": "^4.12.0",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "core-js": "^2.6.9",
     "esri-loader": "^2.10.0",
     "firebase": "^6.3.3",
